@@ -9,16 +9,33 @@ require_once '../lib/PHPExcel/PHPExcel.php';
 
 class ExcelReadController
 {
-    private $filePath = '../excelFile/new_phone.xlsx';
-    private $dsn = 'mysql:host=127.0.0.1;dbname=noodles';
-    private $username = 'noodles';
-    private $password = 'Noodles123456789';
-    private $table = 'hkf_send_message_test';
-    private $dbh;   //  数据库连接信息
+    // private $filePath = '../excelFile/new_phone.xlsx';
+    // private $dsn = 'mysql:host=127.0.0.1;dbname=noodles';
+    // private $username = 'noodles';
+    // private $password = 'Noodles123456789';
+    // private $table = 'hkf_send_message_test';
+    /**
+     * @var string $filePath excel文件的路径
+     * @var string $dsn PDO连接时的host和dbName
+     * @var string $username 数据库username
+     * @var string $password 数据库password
+     * @var string $table table name
+     * @var object $dbh PDO连接实例
+     */
+    private $filePath, $dsn, $username, $password, $table, $dbh;
 
-
+    /**
+     * 初始化变量,并取得PDO连接实例 
+     */
     public function __construct()
     {
+        //  初始化变量
+        $this->filePath = '../excelFile/new_phone.xlsx';
+        $this->dsn = 'mysql:host=127.0.0.1;dbname=noodles';
+        $this->username = 'root';
+        $this->password = '';
+        $this->table = 'message_send';
+        
         //	实例化连接,并设置捕获错误机制
         $dbh = new PDO($this->dsn, $this->username, $this->password);
         //	设置字符集
@@ -149,6 +166,9 @@ class ExcelReadController
         $PHPWriter->save('php://output');
     }
 
+    /**
+     * 加载Excel文件
+     */
     private function loadExcel()
     {
         $filePath = $this->filePath;

@@ -9,11 +9,6 @@ require_once '../lib/PHPExcel/PHPExcel.php';
 
 class ExcelReadController
 {
-    // private $filePath = '../excelFile/new_phone.xlsx';
-    // private $dsn = 'mysql:host=127.0.0.1;dbname=noodles';
-    // private $username = 'noodles';
-    // private $password = 'Noodles123456789';
-    // private $table = 'hkf_send_message_test';
     /**
      * @var string $filePath excel文件的路径
      * @var string $dsn PDO连接时的host和dbName
@@ -188,5 +183,5 @@ class ExcelReadController
 }
 
 $excelRead = new ExcelReadController();
-//$excelRead->readExcel();
-$excelRead->updateExcel();
+$excelRead->readExcel();    //  读取excel中数据到数据库
+//$excelRead->updateExcel();    //  将数据库中数据更新到excel中

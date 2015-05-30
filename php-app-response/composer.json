@@ -1,0 +1,19 @@
+{
+    "name": "vendor_name/package_name",
+    "description": "description_text",
+    "minimum-stability": "stable",
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "hkf",
+            "email": "876946649@qq.com"
+        }
+    ],
+    "require" : {
+        "nesbot/carbon": "~1.14",
+        "monolog/monolog": "~1.6",
+        "illuminate/redis": "5.0.28",
+        "davidpersson/beanstalk": "2.0.0",
+        "symfony/http-kernel": "2.8.*@dev"
+    }
+}
